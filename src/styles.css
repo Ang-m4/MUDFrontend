@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color:darkslategrey;    
+    display:flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.mainFrame{
+    background-color: white;
+    width: 80%;
+    height: 100%;
+    border: 1em solid black;
+}

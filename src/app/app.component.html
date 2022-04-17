@@ -1,2 +1,22 @@
-<h1>Hola</h1>
-<p>This is a test</p>
+<h1 class="mainTittle">Welcome to the Game!</h1>
+
+<div class="content">
+    <nav>
+        <ul>
+            <li>
+                <a [routerLink]="['/home']">home</a>
+            </li>
+
+            <li>
+                <a [routerLink]="['/design']">design</a>
+            </li>
+
+            <li>
+                <a [routerLink]="['/admin']">admin</a>
+            </li>
+        </ul>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+</div>
