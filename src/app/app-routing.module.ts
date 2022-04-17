@@ -11,7 +11,7 @@ import { MonsterShowComponent } from './Monster/monster-show/monster-show.compon
 import { RoomDesignComponent } from './Room/room-design/room-design.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
 
   {
     path: 'design',

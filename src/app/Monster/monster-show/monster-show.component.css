@@ -1,0 +1,21 @@
+.showSection{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0px;
+    /* border: 3px solid green; */
+    
+}
+
+h3{
+    text-align: center;
+}
+
+p{
+    text-align: justify;
+}
+
+.buttonContainer{
+    margin-top: 30px;
+    justify-content: center;
+    display: flex;
+}

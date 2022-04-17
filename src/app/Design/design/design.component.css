@@ -6,6 +6,7 @@
     background-color: white;
     border-top: 5px solid black;
     
+    
 }
 
 
@@ -38,7 +39,4 @@ nav li{
 a{
     text-decoration: none;
     color:darkgoldenrod;
-}
-.designContainer{
-   
 }
