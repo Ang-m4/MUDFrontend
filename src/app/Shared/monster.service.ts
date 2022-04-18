@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, Observer, of } from 'rxjs';
 import { Monster } from '../model/monster';
 
 @Injectable({
@@ -8,27 +9,19 @@ import { Monster } from '../model/monster';
 })
 export class MonsterService {
  
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  private monsterDB: {[key:number]: Monster} ={
-
-    1: new Monster(1,"Molanisk","",0,0,0,0,"",""),
-    2: new Monster(2,"Quack","",0,0,0,0,"",""),
-    3: new Monster(3,"Getto","",0,0,0,0,"",""),
-    4: new Monster(4,"Lucile","",0,0,0,0,"",""),
-    5: new Monster(5,"Bob","",0,0,0,0,"",""),
-
-  }
-
+  //http://localhost:8080/monster/list
+  //return this.http.get<Monster[]>("http://localhost:8080/monster/list");
   findAll(): Observable<Monster[]>{
     
-    console.log(Object.values(this.monsterDB));
-    return of(Object.values(this.monsterDB));
+    return this.http.get<Monster[]>("http://localhost:8080/monster/list");
+
   }
 
-  findById(id: number):Monster{
+  findById(id: number):Observable<Monster>{
 
-    return this.monsterDB[id];
+    return this.http.get<Monster>("http://localhost:8080/monster/show?id="+id);
 
   }
 

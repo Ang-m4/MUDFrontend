@@ -23,16 +23,19 @@ export class MonsterShowComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
 
       let id =  +params.get("id")!;
-      this.monster = this.monsterService.findById(id);
+      this.monsterService.findById(id).subscribe((received)=>{
+
+        console.log(received);
+        this.monster = received;
+
+      });
 
     });
 
   }
 
   delete(id: number){
-
     this.monsterService.delete(id);
-
   }
 
 }

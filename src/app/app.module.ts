@@ -22,6 +22,7 @@ import { RoomListComponent } from './Room/room-list/room-list.component';
 import { RoomShowComponent } from './Room/room-show/room-show.component';
 import { RoomDesignComponent } from './Room/room-design/room-design.component';
 import { MonsterCreateComponent } from './Monster/monster-create/monster-create.component';
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MonsterCreateComponent } from './Monster/monster-create/monster-create.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
