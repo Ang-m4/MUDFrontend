@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Monster } from 'src/app/model/monster';
+import { MonsterService } from 'src/app/Shared/monster.service';
 
 @Component({
   selector: 'app-monster-show',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonsterShowComponent implements OnInit {
 
-  constructor() { }
+  monster: Monster = new Monster(0,"","",0,0,0,0,"","");
+
+  constructor(
+    private monsterService: MonsterService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    
+    this.route.paramMap.subscribe((params) => {
+
+      let id =  +params.get("id")!;
+      this.monster = this.monsterService.findById(id);
+
+    });
+
+  }
+
+  delete(id: number){
+
+    this.monsterService.delete(id);
+
   }
 
 }

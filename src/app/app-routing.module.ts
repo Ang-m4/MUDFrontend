@@ -6,6 +6,7 @@ import { DesignComponent } from './Design/design/design.component';
 import { HomeComponent } from './Home/home/home.component';
 import { ItemDesignComponent } from './Item/item-design/item-design.component';
 import { ItemShowComponent } from './Item/item-show/item-show.component';
+import { MonsterCreateComponent } from './Monster/monster-create/monster-create.component';
 import { MonsterDesignComponent } from './Monster/monster-design/monster-design.component';
 import { MonsterShowComponent } from './Monster/monster-show/monster-show.component';
 import { RoomDesignComponent } from './Room/room-design/room-design.component';
@@ -17,14 +18,19 @@ const routes: Routes = [
     path: 'design',
     component: DesignComponent,
     children: [
-      {path:'monster',component: MonsterDesignComponent},
-      {path:'item',component: ItemDesignComponent},
-      {path:'decoItem',component: DecoItemDesignComponent},
-      {path:'room',component: RoomDesignComponent},
+      { path: 'monster', component: MonsterDesignComponent,children: [
+
+        {path: 'show/:id',component: MonsterShowComponent},
+        {path: 'create',component: MonsterCreateComponent}
+      ]},
+      { path: 'item', component: ItemDesignComponent },
+      { path: 'decoItem', component: DecoItemDesignComponent },
+      { path: 'room', component: RoomDesignComponent },
     ]
   },
-
-  { path: 'admin', component: AdminComponent },
+  
+  { path: 'admin', component: AdminComponent }
+  
 ];
 
 @NgModule({

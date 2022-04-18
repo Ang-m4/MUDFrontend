@@ -21,6 +21,7 @@ import { DecoItemDesignComponent } from './DecorativeItem/deco-item-design/deco-
 import { RoomListComponent } from './Room/room-list/room-list.component';
 import { RoomShowComponent } from './Room/room-show/room-show.component';
 import { RoomDesignComponent } from './Room/room-design/room-design.component';
+import { MonsterCreateComponent } from './Monster/monster-create/monster-create.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RoomDesignComponent } from './Room/room-design/room-design.component';
     DecoItemDesignComponent,
     RoomListComponent,
     RoomShowComponent,
-    RoomDesignComponent
+    RoomDesignComponent,
+    MonsterCreateComponent
   ],
   imports: [
     BrowserModule,

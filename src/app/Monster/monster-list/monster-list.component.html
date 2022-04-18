@@ -1,20 +1,5 @@
 <ul>
-    
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-    <li><a href=""></a>Monster</li>
-   
+    <li *ngFor="let monster of monsters; let i = index">
+        <a [routerLink]="['/design/monster/show',monster.id]">{{monster.name}}</a>
+    </li>
 </ul>

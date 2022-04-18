@@ -5,28 +5,21 @@
         <div class="container">
 
             <div class="infoDisplay">
-
-                <app-monster-show></app-monster-show>
-                
+                <router-outlet></router-outlet>
             </div>
 
-            
-            <div class="buttom">
-                
-            </div>
-
+            <button [routerLink]="['/design/monster/create']"> Create</button>
+           
         </div>
 
-        
     </div>
 
     <div class="listDisplay">
 
         <div class="container">
-
             <app-monster-list></app-monster-list>
-
         </div>
-    </div>
 
+    </div>
+    
 </div>

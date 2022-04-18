@@ -19,8 +19,6 @@
     background-color:dimgray;
     height: 100%;
     display: inline-block;
-    
-
 }
 
 .listDisplay .container{
@@ -32,15 +30,16 @@
     height: 100%;
     margin: 0px;
     
+    
 }
 
-.buttom{
+button{
     width: 100%;
     height: 8%;
     background-color:darkgrey;
     text-align: center;
+    text-transform: uppercase;
    
-
 }
 
 .infoDisplay{
@@ -48,3 +47,9 @@
     overflow: auto;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+   
+    border:1px solid green;
+}

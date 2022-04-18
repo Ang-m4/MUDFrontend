@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Monster } from 'src/app/model/monster';
+import { MonsterService } from 'src/app/Shared/monster.service';
 
 @Component({
   selector: 'app-monster-list',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonsterListComponent implements OnInit {
 
-  constructor() { }
+  monsters:Monster[] = [];
+  constructor(private monsterService: MonsterService) { }
 
   ngOnInit(): void {
+    this.monsterService.findAll().subscribe((received)=> (this.monsters = received));
   }
 
 }

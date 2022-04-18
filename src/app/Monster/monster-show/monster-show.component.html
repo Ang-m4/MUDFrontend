@@ -1,25 +1,23 @@
 <div class="showSection">
 
-    <h3>Monster Name</h3>
+    <h3>Monster Name: {{monster?.name}}</h3>
 
     <div>
         <h4>Stats:</h4>
         <ul>
-            <li>Id:</li>
-            <li>last updated:</li>
-            <li>Attack Level:</li>
-            <li>defence_slash:</li>
-            <li>size:</li>
-            <li>hitpoints:</li>
+            <li>Id: {{monster?.name}}</li>
+            <li>last updated: {{monster?.last_updated}}</li>
+            <li>Attack Level: {{monster?.attack_level}}</li>
+            <li>defence_slash: {{monster?.defence_slash}}</li>
+            <li>size: {{monster?.size}}</li>
+            <li>hitpoints: {{monster?.hitpoints}}</li>
         </ul>
 
         <h4>Examine:</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos asperiores similique, dolores nemo veritatis
-            quis iure inventore possimus quas officia maxime ipsa fuga dignissimos labore eius nulla laboriosam impedit
-            animi?</p>
+        <p>{{monster?.examine}}</p>
 
         <div class="buttonContainer">
-            <button> Delete </button>
+            <button (click)="delete(monster.id)"> Delete </button>
         </div>
     </div>
 
