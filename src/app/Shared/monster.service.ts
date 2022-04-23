@@ -11,8 +11,7 @@ export class MonsterService {
  
   constructor(private http: HttpClient) {}
 
-  //http://localhost:8080/monster/list
-  //return this.http.get<Monster[]>("http://localhost:8080/monster/list");
+  
   findAll(): Observable<Monster[]>{
     
     return this.http.get<Monster[]>("http://localhost:8080/monster/list");
@@ -21,7 +20,7 @@ export class MonsterService {
 
   findById(id: number):Observable<Monster>{
 
-    return this.http.get<Monster>("http://localhost:8080/monster/show?id="+id);
+    return this.http.get<Monster>("http://localhost:8080/monster/"+id+"/get");
 
   }
 

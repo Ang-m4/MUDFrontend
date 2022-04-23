@@ -1,3 +1,11 @@
+h3{
+    text-align: center;
+    border-bottom: 4px solid black;
+    margin: 0px;
+    padding: 2px;   
+    background-color: darkslategray;
+}
+
 ul{
     margin: 0px;
     padding: 0px;
@@ -8,7 +16,12 @@ ul{
 
 li{
     border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
     padding: 5px;
-    background-color: cadetblue;
+    background-color:rgb(69, 82, 82);
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}   

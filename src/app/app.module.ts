@@ -23,6 +23,7 @@ import { RoomShowComponent } from './Room/room-show/room-show.component';
 import { RoomDesignComponent } from './Room/room-design/room-design.component';
 import { MonsterCreateComponent } from './Monster/monster-create/monster-create.component';
 import { HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HttpClientModule} from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

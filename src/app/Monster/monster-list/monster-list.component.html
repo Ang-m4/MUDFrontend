@@ -1,3 +1,5 @@
+<h3> MONSTER LIST</h3>
+
 <ul>
     <li *ngFor="let monster of monsters; let i = index">
         <a [routerLink]="['/design/monster/show',monster.id]">{{monster.name}}</a>
