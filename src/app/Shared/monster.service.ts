@@ -9,8 +9,6 @@ import { Monster } from '../model/monster';
 })
 export class MonsterService {
   
-  private subject = new Subject<any>();
-
   constructor(private http: HttpClient) {}
 
   

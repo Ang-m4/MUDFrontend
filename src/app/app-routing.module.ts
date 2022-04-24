@@ -4,6 +4,7 @@ import { AdminComponent } from './Admin/admin/admin.component';
 import { DecoItemDesignComponent } from './DecorativeItem/deco-item-design/deco-item-design.component';
 import { DesignComponent } from './Design/design/design.component';
 import { HomeComponent } from './Home/home/home.component';
+import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { ItemDesignComponent } from './Item/item-design/item-design.component';
 import { ItemShowComponent } from './Item/item-show/item-show.component';
 import { MonsterCreateComponent } from './Monster/monster-create/monster-create.component';
@@ -23,7 +24,12 @@ const routes: Routes = [
         {path: 'show/:id',component: MonsterShowComponent},
         {path: 'create',component: MonsterCreateComponent}
       ]},
-      { path: 'item', component: ItemDesignComponent },
+      { path: 'item', component: ItemDesignComponent ,children: [
+
+        {path: 'show/:id',component: ItemShowComponent},
+        {path: 'create',component: ItemCreateComponent}
+      ]},
+
       { path: 'decoItem', component: DecoItemDesignComponent },
       { path: 'room', component: RoomDesignComponent },
     ]

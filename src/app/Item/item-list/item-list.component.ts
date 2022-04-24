@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/model/item';
+import { ItemService } from 'src/app/Shared/item.service';
 
 @Component({
   selector: 'app-item-list',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemListComponent implements OnInit {
 
-  constructor() { }
 
+  items: Item[] = [];
+
+  constructor(private itemService: ItemService) { }
+  
   ngOnInit(): void {
+
+    this.loadItems()
+  }
+
+  delete(id:number){
+
+
+    this.ngOnInit()
+    this.itemService.delete(id).subscribe()
+    this.ngOnInit()
+    
+  }
+
+  loadItems(){
+    
+    this.itemService.findAll().subscribe(items=>{this.items = items})
   }
 
 }

@@ -1,1 +1,23 @@
-<p>item-design works!</p>
+<div class="itemSection">
+
+    <div class="selectedDisplay">
+
+        <div class="container">
+
+            <div class="infoDisplay">
+                
+                <router-outlet></router-outlet>
+                
+            </div>
+            <button [routerLink]="['/design/item/create']"> Create</button>           
+        </div>
+    </div>
+
+    <div class="listDisplay">
+
+        <div class="container">
+            <app-item-list></app-item-list>
+        </div>
+    </div>
+    
+</div>

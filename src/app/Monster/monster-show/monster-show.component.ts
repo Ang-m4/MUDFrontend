@@ -87,7 +87,7 @@ export class MonsterShowComponent implements OnInit {
       wiki_url: this.monster.wiki_url,
 
     });
-
+  
     this.categories.clear();
     this.monster.category.forEach(category => {
       this.categories.push(this.newCategory(category))

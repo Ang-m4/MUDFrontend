@@ -16,7 +16,7 @@ export class MonsterListComponent implements OnInit {
 
     this.monsterService.findAll().subscribe((received)=> {this.monsters = received});
   } 
-
+  
   delete(id: number) {
 
     this.ngOnInit()

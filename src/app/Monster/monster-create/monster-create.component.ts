@@ -37,6 +37,8 @@ export class MonsterCreateComponent implements OnInit {
 
   }
 
+  // ----- Categories Management ----- //
+
   get categories(): FormArray {
     return this.monsterCreateForm.get('categories') as FormArray
   }
@@ -54,6 +56,9 @@ export class MonsterCreateComponent implements OnInit {
       name: [category, [Validators.required]]
     })
   }
+
+  
+  // ----- Form initializer ----- //
 
   loadFormData() {
 
