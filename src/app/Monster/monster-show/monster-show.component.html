@@ -31,27 +31,27 @@
             </ul>
 
             <h3 style="border-top: 4px solid black;">categories
-                <button (click)="addNewCategory()" style="width: 10%;" >New </button>
+                <button (click)="addCategory()" style="width: 10%;" >New </button>
             </h3>
 
             <ul formArrayName="categories">
                 <li *ngFor="let category of categories.controls; let i = index">
                     <p [formGroupName]="i">
-                        <input class="content" type="text"  formGroupName="name"> 
+                        <input class="content" type="text" formControlName="name"> 
                     </p>
+                    <button (click)="removeCategory(i)" class="buttonDelete">X</button>
                 </li>
             </ul>
 
             <h4>Examine:</h4>
             <p><input style="background-color: rgb(135, 136, 136)" class="content" type="text" formControlName="examine">
-            <p>More info at: <a href="">{{monster?.wiki_url}}</a></p>
+            <p>More info at: <a [href]= "monster.wiki_url" >{{monster?.wiki_url}}</a></p>
             
             <div class="buttonContainer">
                 <button (click)="save()"> Save </button>
-                <button (click)="delete(monster.id)"> Delete </button>
+               
             </div>
         </div>
 
     </form> 
-
 </div>

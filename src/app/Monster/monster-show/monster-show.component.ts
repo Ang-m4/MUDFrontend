@@ -12,7 +12,7 @@ import { MonsterService } from 'src/app/Shared/monster.service';
 })
 export class MonsterShowComponent implements OnInit {
 
-  monster: Monster = new Monster(0, "", "", 0, 0, 2, 0, "", "");
+  monster: Monster = new Monster(0, "", "", 0, 0, 0, 0, "", "");
   monsterToSend: Monster = new Monster(0, "", "", 0, 0, 0, 0, "", "");
 
   monsterCreateForm: FormGroup = new FormGroup({
@@ -36,7 +36,7 @@ export class MonsterShowComponent implements OnInit {
       this.monsterService.findById(id).subscribe((received) => {
         this.monster = received;
         this.loadFormData()
-        //this.loadFormCategories()
+
       });
 
     });
@@ -59,15 +59,18 @@ export class MonsterShowComponent implements OnInit {
     return this.monsterCreateForm.get('categories') as FormArray
   }
 
-  newCategory(categorie: string): FormGroup {
-    return this.fb.group({
-      name: categorie
-    })
-  }
-
-
   removeCategory(i: number) {
     this.categories.removeAt(i);
+  }
+
+  addCategory() {
+    this.categories.push(this.newCategory(""));
+  };
+
+  newCategory(category: string): FormGroup {
+    return this.fb.group({
+      name: [category, [Validators.required]]
+    })
   }
 
   loadFormData() {
@@ -83,19 +86,18 @@ export class MonsterShowComponent implements OnInit {
       examine: this.monster.examine,
       wiki_url: this.monster.wiki_url,
 
-    })
+    });
+
+    this.categories.clear();
+    this.monster.category.forEach(category => {
+      this.categories.push(this.newCategory(category))
+    });
 
   }
 
-  addCategory(categorie: string) {
-    this.categories.push(this.newCategory(categorie));
-  };
-
-  addNewCategory() {
-    this.addCategory("");
-  };
-  
   save() {
+
+    this.monsterToSend = new Monster(0, "", "", 0, 0, 0, 0, "", "");
 
     this.monsterToSend.id = this.monster.id;
     this.monsterToSend.name = this.monsterCreateForm.value.name;
@@ -106,19 +108,16 @@ export class MonsterShowComponent implements OnInit {
     this.monsterToSend.hitpoints = this.monsterCreateForm.value.hitpoints;
     this.monsterToSend.examine = this.monsterCreateForm.value.examine;
     this.monsterToSend.wiki_url = this.monsterCreateForm.value.wiki_url;
-    console.log(this.monsterCreateForm.value);
+    this.categories.value.forEach((category: { name: string; }) => {
 
-    this.categories.controls.forEach(a=>{
+      this.monsterToSend.category.push(category.name)
 
-      console.log(a.value.name);
+    });
 
+    this.monsterService.save(this.monsterToSend).subscribe(a => {
+      console.log(a)
     })
 
   };
-
-  delete(id: number) {
-    this.monsterService.delete(id);
-  };
-
 
 }

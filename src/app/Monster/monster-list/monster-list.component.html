@@ -1,7 +1,8 @@
-<h3> MONSTER LIST</h3>
+<h3> MONSTER LIST <button (click)="ngOnInit()" >R</button> </h3>
 
 <ul>
     <li *ngFor="let monster of monsters; let i = index">
         <a [routerLink]="['/design/monster/show',monster.id]">{{monster.name}}</a>
+        <button (click)="delete(monster.id)"> X </button>
     </li>
 </ul>

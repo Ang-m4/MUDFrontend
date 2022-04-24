@@ -13,7 +13,15 @@ export class MonsterListComponent implements OnInit {
   constructor(private monsterService: MonsterService) { }
 
   ngOnInit(): void {
-    this.monsterService.findAll().subscribe((received)=> (this.monsters = received));
-  }
+
+    this.monsterService.findAll().subscribe((received)=> {this.monsters = received});
+  } 
+
+  delete(id: number) {
+
+    this.ngOnInit()
+    this.monsterService.delete(id).subscribe()
+    this.ngOnInit()
+  };
 
 }

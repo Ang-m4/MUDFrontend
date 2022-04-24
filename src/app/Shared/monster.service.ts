@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable, Observer, of } from 'rxjs';
+import { Observable, Observer, of, Subject } from 'rxjs';
 import { Monster } from '../model/monster';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonsterService {
- 
+  
+  private subject = new Subject<any>();
+
   constructor(private http: HttpClient) {}
 
   
@@ -24,10 +26,16 @@ export class MonsterService {
 
   }
 
-  delete(id: number){
+  delete(id: number): Observable<number> {
 
-    console.log("Trying to delete "+ id);
+    return this.http.get<number>("http://localhost:8080/monster/"+id+"/delete")
 
   }
 
+  save(monster: Monster): Observable<Monster>{
+
+    return this.http.post<Monster>("http://localhost:8080/monster/save",monster);
+
+  }
+ 
 }

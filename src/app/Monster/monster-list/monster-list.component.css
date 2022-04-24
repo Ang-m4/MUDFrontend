@@ -11,7 +11,7 @@ ul{
     padding: 0px;
     list-style-type: none;
     width: 100%;
-    text-align: center;
+    
 }
 
 li{
@@ -19,9 +19,18 @@ li{
     border-bottom: 2px solid black;
     padding: 5px;
     background-color:rgb(69, 82, 82);
+    text-align: justify;
 }
 
 a{
     text-decoration: none;
     color: black;
-}   
+    margin-right: 10px;
+}  
+
+button {
+    background-color: darkslategray;
+    margin-left: 20px;
+    width: 10%;
+    padding: 2px;
+}
