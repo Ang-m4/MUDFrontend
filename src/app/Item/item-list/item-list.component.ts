@@ -37,8 +37,9 @@ export class ItemListComponent implements OnInit {
     this.itemService.findAll().subscribe(items=>{this.items = items})
   }
 
-  add(id:number){
+  add(item:Item){
 
+    this.itemService.sendItem(item)
 
   }
 }

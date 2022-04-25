@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { filter, switchMap } from 'rxjs';
 import { Item } from 'src/app/model/item';
 import { Player } from 'src/app/model/player';
+import { ItemService } from 'src/app/Shared/item.service';
 import { PlayerService } from 'src/app/Shared/player.service';
 
 @Component({
@@ -12,8 +14,8 @@ import { PlayerService } from 'src/app/Shared/player.service';
 })
 export class PlayerShowComponent implements OnInit {
 
-  player: Player = new Player(0,"","",0,0,0,0,"","",0,0);
-  playerToSend: Player = new Player(0,"","",0,0,0,0,"","",0,0);
+  player: Player = new Player(0, "", "", 0, 0, 0, 0, "", "", 0, 0);
+  playerToSend: Player = new Player(0, "", "", 0, 0, 0, 0, "", "", 0, 0);
 
   playerCreateForm: FormGroup = new FormGroup({
     title: new FormControl(''),
@@ -22,6 +24,7 @@ export class PlayerShowComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private playerService: PlayerService,
+    private itemService: ItemService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -49,10 +52,12 @@ export class PlayerShowComponent implements OnInit {
       categories: this.fb.array([]),
       maxWeight: ['', [Validators.required]],
       weight: ['', [Validators.required]],
-
-
       backpack: this.fb.array([])
     });
+
+    this.itemService.itemSelected.subscribe(item => {
+      this.addItem(item)
+    })
 
   }
 
@@ -70,9 +75,9 @@ export class PlayerShowComponent implements OnInit {
       wiki_url: this.player.wiki_url,
       maxWeight: this.player.maxWeight,
       weight: this.player.weight
-      
+
     });
-  
+
     this.categories.clear();
     this.player.category.forEach(category => {
       this.categories.push(this.newCategory(category))
@@ -110,25 +115,40 @@ export class PlayerShowComponent implements OnInit {
     return this.playerCreateForm.get('backpack') as FormArray
   }
 
-  removeItem(i:number){
+  removeItem(i: number) {
     this.items.removeAt(i)
   }
 
-  addItem(newItem: Item){
-    return this.items.push(this.newItem(newItem))
-  }
+  addItem(newItem: Item) {
 
+    
+    // ------- add Item logic not repeatable ------ ///
+    let valid = true;
+
+    this.items.value.forEach((item: { item: Item; }) => {
+
+      if(item.item.id == newItem.id){
+        valid = false;
+      }
+
+    })
+
+    if ((newItem.id != -1) && valid) {
+      return this.items.push(this.newItem(newItem))
+    }
+
+  }
 
   newItem(newItem: Item): FormGroup {
     return this.fb.group({
 
-      item: [newItem,Validators.required] 
+      item: [newItem, Validators.required]
     })
   }
 
-  save(){
+  save() {
 
-    this.playerToSend = new Player(0, "", "", 0, 0, 0, 0, "", "",0,0);
+    this.playerToSend = new Player(0, "", "", 0, 0, 0, 0, "", "", 0, 0);
 
     this.playerToSend.id = this.player.id;
     this.playerToSend.name = this.playerCreateForm.value.name;
@@ -141,14 +161,14 @@ export class PlayerShowComponent implements OnInit {
     this.playerToSend.wiki_url = this.playerCreateForm.value.wiki_url;
     this.playerToSend.maxWeight = this.playerCreateForm.value.maxWeight;
     this.playerToSend.weight = this.playerCreateForm.value.weight;
-    
+
     this.categories.value.forEach((category: { name: string; }) => {
 
       this.playerToSend.category.push(category.name)
 
     });
 
-    this.items.value.forEach((item: { item: Item; })=>{
+    this.items.value.forEach((item: { item: Item; }) => {
 
       this.playerToSend.backpack.push(item.item)
 

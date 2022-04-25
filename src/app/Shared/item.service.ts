@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Item } from '../model/item';
 
 @Injectable({
@@ -8,8 +8,14 @@ import { Item } from '../model/item';
 })
 export class ItemService {
 
+  private itemSource = new BehaviorSubject<Item>(new Item(-1,"","",0,0,"",""))
+  itemSelected = this.itemSource.asObservable()
+
   constructor(private http: HttpClient) { }
 
+  sendItem(item: Item){
+    this.itemSource.next(item);
+  }
   
   findAll(): Observable<Item[]>{
     
@@ -30,12 +36,13 @@ export class ItemService {
   }
 
   save(item: Item): Observable<Item>{
-
   
     return this.http.post<Item>("http://localhost:8080/item/save",item);
 
   }
  
+
+  
 
 
 }
