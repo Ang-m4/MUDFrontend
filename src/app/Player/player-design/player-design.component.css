@@ -1,0 +1,59 @@
+.playerSection{
+    border: 4px solid black;
+    height: 500px;     
+}
+
+
+.selectedDisplay{
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+    background-color: rgb(135, 136, 136);
+    vertical-align: top; 
+    
+}
+
+.column{
+    vertical-align: top;
+    display: inline-block;
+    width: 20%;
+}
+
+.listDisplay{
+    width: 20%;
+    background-color:dimgray;
+    height: 100%;
+    display: inline-block;
+}
+
+.listDisplay .container{
+   
+    overflow: auto;
+}
+
+.container{
+    height: 100%;
+    margin: 0px;
+    border-left: 5px solid black;
+}
+
+button{
+    width: 100%;
+    height: 8%;
+
+    background-color: darkslategray;
+    text-align: center;
+    text-transform: uppercase;
+   
+}
+
+.infoDisplay{
+    height: 92%;
+    overflow: auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    border:1px solid green;
+}

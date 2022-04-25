@@ -36,7 +36,6 @@ export class MonsterShowComponent implements OnInit {
       this.monsterService.findById(id).subscribe((received) => {
         this.monster = received;
         this.loadFormData()
-
       });
 
     });
@@ -52,7 +51,7 @@ export class MonsterShowComponent implements OnInit {
       wiki_url: ['', [Validators.required]],
       categories: this.fb.array([]),
     });
-
+    
   };
 
   get categories(): FormArray {

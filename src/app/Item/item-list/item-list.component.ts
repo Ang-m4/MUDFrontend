@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/model/item';
 import { ItemService } from 'src/app/Shared/item.service';
 
@@ -11,11 +12,19 @@ export class ItemListComponent implements OnInit {
 
 
   items: Item[] = [];
+  design: boolean = false;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService,
+    private route: ActivatedRoute,
+    private router: Router) { }
   
   ngOnInit(): void {
 
+    if(this.router.url === '/design/item'){
+      this.design = true;
+    }
+
+    console.log(this.router.url)
     this.loadItems()
   }
 
@@ -28,4 +37,8 @@ export class ItemListComponent implements OnInit {
     this.itemService.findAll().subscribe(items=>{this.items = items})
   }
 
+  add(id:number){
+
+
+  }
 }

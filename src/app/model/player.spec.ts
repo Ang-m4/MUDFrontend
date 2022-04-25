@@ -2,6 +2,6 @@ import { Player } from './player';
 
 describe('Player', () => {
   it('should create an instance', () => {
-    expect(new Player(0,"","",0,0,0,0,"","")).toBeTruthy();
+    expect(new Player(0,"","",0,0,0,0,"","",0,0)).toBeTruthy();
   });
 });

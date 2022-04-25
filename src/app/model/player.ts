@@ -12,7 +12,9 @@ export class Player {
     public size: number,
     public hitpoints: number,
     public examine: string,
-    public wiki_url: string
+    public wiki_url: string,
+    public maxWeight: number,
+    public weight: number
 
     ){}
 

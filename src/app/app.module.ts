@@ -9,7 +9,6 @@ import { PlayerShowComponent } from './Player/player-show/player-show.component'
 import { PlayerListComponent } from './Player/player-list/player-list.component';
 import { HomeComponent } from './Home/home/home.component';
 import { DesignComponent } from './Design/design/design.component';
-import { AdminComponent } from './Admin/admin/admin.component';
 import { MonsterDesignComponent } from './Monster/monster-design/monster-design.component';
 import { ItemDesignComponent } from './Item/item-design/item-design.component';
 import { ItemListComponent } from './Item/item-list/item-list.component';
@@ -22,6 +21,7 @@ import { HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { DecorativeItemShowComponent } from './Item/decorative-item-show/decorative-item-show.component';
+import { PlayerCreateComponent } from './Player/player-create/player-create.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,6 @@ import { DecorativeItemShowComponent } from './Item/decorative-item-show/decorat
     PlayerListComponent,
     HomeComponent,
     DesignComponent,
-    AdminComponent,
     MonsterDesignComponent,
     ItemDesignComponent,
     ItemListComponent,
@@ -43,7 +42,8 @@ import { DecorativeItemShowComponent } from './Item/decorative-item-show/decorat
     RoomDesignComponent,
     MonsterCreateComponent,
     ItemCreateComponent,
-    DecorativeItemShowComponent
+    DecorativeItemShowComponent,
+    PlayerCreateComponent
   ],
   imports: [
     BrowserModule,

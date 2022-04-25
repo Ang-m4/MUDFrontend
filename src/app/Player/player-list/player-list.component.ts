@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Player } from 'src/app/model/player';
+import { PlayerService } from 'src/app/Shared/player.service';
 
 @Component({
   selector: 'app-player-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerListComponent implements OnInit {
 
-  constructor() { }
+  players: Player[] = [];
+  
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit(): void {
+
+    this.loadPlayers()
+  }
+
+  delete(id: number) {
+    this.playerService.delete(id).subscribe(a => this.loadPlayers())
+  };
+
+  loadPlayers(){
+    this.playerService.findAll().subscribe((received)=> {this.players = received});
   }
 
 }

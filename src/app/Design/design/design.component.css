@@ -24,6 +24,7 @@ li{
     border: 3px solid black ;
     margin-inline: 20px;
     width: 20%;
+    background-color:darkslategrey;
 }
 
 a{
