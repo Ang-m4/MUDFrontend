@@ -1,7 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './Admin/admin/admin.component';
-import { DecoItemDesignComponent } from './DecorativeItem/deco-item-design/deco-item-design.component';
 import { DesignComponent } from './Design/design/design.component';
 import { HomeComponent } from './Home/home/home.component';
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
         {path: 'create',component: ItemCreateComponent}
       ]},
 
-      { path: 'decoItem', component: DecoItemDesignComponent },
       { path: 'room', component: RoomDesignComponent },
     ]
   },

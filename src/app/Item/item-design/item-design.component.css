@@ -3,16 +3,23 @@
     height: 500px;
 }
 
+
+.column{
+    vertical-align: top;
+    display: inline-block;
+    width: 20%;
+}
+
 .selectedDisplay{
     display: inline-block;
-    width: 70%;
+    width: 60%;
     height: 100%;
     background-color: rgb(135, 136, 136);
     vertical-align: top; 
 }
 
 .listDisplay{
-    width: 30%;
+    width: 20%;
     background-color:dimgray;
     height: 100%;
     display: inline-block;
@@ -26,6 +33,7 @@
 .container{
     height: 100%;
     margin: 0px;
+    border-left: 4px solid black;   
 }
 
 button{
