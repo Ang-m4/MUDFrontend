@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Item } from 'src/app/model/item';
 import { Player } from 'src/app/model/player';
 import { PlayerService } from 'src/app/Shared/player.service';
 
@@ -47,7 +48,10 @@ export class PlayerShowComponent implements OnInit {
       wiki_url: ['', [Validators.required]],
       categories: this.fb.array([]),
       maxWeight: ['', [Validators.required]],
-      weight: ['', [Validators.required]]
+      weight: ['', [Validators.required]],
+
+
+      backpack: this.fb.array([])
     });
 
   }
@@ -74,8 +78,14 @@ export class PlayerShowComponent implements OnInit {
       this.categories.push(this.newCategory(category))
     });
 
+    this.items.clear();
+    this.player.backpack.forEach(item => {
+      this.items.push(this.newItem(item))
+    });
+
   }
 
+  // -------- CATEGORIES ------- ///
   get categories(): FormArray {
     return this.playerCreateForm.get('categories') as FormArray
   }
@@ -91,6 +101,28 @@ export class PlayerShowComponent implements OnInit {
   newCategory(category: string): FormGroup {
     return this.fb.group({
       name: [category, [Validators.required]]
+    })
+  }
+
+
+  /// ----------- ITEMS ---------- ///
+  get items(): FormArray {
+    return this.playerCreateForm.get('backpack') as FormArray
+  }
+
+  removeItem(i:number){
+    this.items.removeAt(i)
+  }
+
+  addItem(newItem: Item){
+    return this.items.push(this.newItem(newItem))
+  }
+
+
+  newItem(newItem: Item): FormGroup {
+    return this.fb.group({
+
+      item: [newItem,Validators.required] 
     })
   }
 
@@ -116,11 +148,15 @@ export class PlayerShowComponent implements OnInit {
 
     });
 
+    this.items.value.forEach((item: { item: Item; })=>{
+
+      this.playerToSend.backpack.push(item.item)
+
+    })
+
     this.playerService.save(this.playerToSend).subscribe(a => {
       console.log(a)
     })
-
-
 
   }
 
