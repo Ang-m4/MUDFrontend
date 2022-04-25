@@ -108,6 +108,7 @@ export class MonsterShowComponent implements OnInit {
     this.monsterToSend.hitpoints = this.monsterCreateForm.value.hitpoints;
     this.monsterToSend.examine = this.monsterCreateForm.value.examine;
     this.monsterToSend.wiki_url = this.monsterCreateForm.value.wiki_url;
+    
     this.categories.value.forEach((category: { name: string; }) => {
 
       this.monsterToSend.category.push(category.name)

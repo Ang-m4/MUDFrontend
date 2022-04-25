@@ -21,6 +21,7 @@ import { MonsterCreateComponent } from './Monster/monster-create/monster-create.
 import { HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
+import { DecorativeItemShowComponent } from './Item/decorative-item-show/decorative-item-show.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ItemCreateComponent } from './Item/item-create/item-create.component';
     RoomShowComponent,
     RoomDesignComponent,
     MonsterCreateComponent,
-    ItemCreateComponent
+    ItemCreateComponent,
+    DecorativeItemShowComponent
   ],
   imports: [
     BrowserModule,

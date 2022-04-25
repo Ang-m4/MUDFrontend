@@ -14,14 +14,14 @@ export class MonsterListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.monsterService.findAll().subscribe((received)=> {this.monsters = received});
+    this.loadMonsters()
   } 
   
   delete(id: number) {
-
-    this.ngOnInit()
-    this.monsterService.delete(id).subscribe()
-    this.ngOnInit()
+    this.monsterService.delete(id).subscribe(a => this.loadMonsters())
   };
 
+  loadMonsters(){
+    this.monsterService.findAll().subscribe((received)=> {this.monsters = received});
+  }
 }

@@ -21,15 +21,10 @@ export class ItemListComponent implements OnInit {
 
   delete(id:number){
 
-
-    this.ngOnInit()
-    this.itemService.delete(id).subscribe()
-    this.ngOnInit()
-    
+    this.itemService.delete(id).subscribe(a=> this.loadItems())    
   }
 
   loadItems(){
-    
     this.itemService.findAll().subscribe(items=>{this.items = items})
   }
 

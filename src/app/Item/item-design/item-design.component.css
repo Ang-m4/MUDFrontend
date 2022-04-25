@@ -7,7 +7,9 @@
 .column{
     vertical-align: top;
     display: inline-block;
+    height: 100%;
     width: 20%;
+    overflow: auto;
 }
 
 .selectedDisplay{
@@ -27,9 +29,13 @@
 
 .listDisplay .container{
     border-left: 5px solid black;
-    overflow: auto;
+    overflow: auto; 
 }
 
+.column  .container{
+    border-left: 5px solid black;
+    overflow: auto; 
+}
 .container{
     height: 100%;
     margin: 0px;

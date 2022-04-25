@@ -1,8 +1,11 @@
 <h3>ITEM LIST  <button (click)="ngOnInit()" >R</button> </h3>
 
-<ul>
-    <li *ngFor="let item of items; let i = index">
-        <a [routerLink]="['/design/item/show',item.id]">{{item.name}}</a>
-        <button (click)="delete(item.id)"> X </button>
-    </li>
-</ul>
+<div >
+    <ul>
+        <li *ngFor="let item of items; let i = index">
+            <a [routerLink]="['/design/item/show',item.id]">{{item.name}}</a>
+            <button (click)="delete(item.id)"> X </button>
+        </li>
+    </ul>
+</div>
+
