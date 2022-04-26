@@ -1,0 +1,124 @@
+
+h3{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h3 span{
+    border: 2px solid black;
+    padding-inline: 20px;
+}
+
+.listSelect{
+    padding: 0px;
+    text-align: center;
+}
+
+div .listSelectItem{
+    vertical-align: top;
+    display: inline-block;
+    margin-inline: 5px;
+    background-color: darkslategray;
+    width: 23%;
+    height: 300px;
+    overflow: auto;
+    border: 3px solid black;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+
+}
+
+div ::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.tittleInput {
+
+    background-color: darkslategray;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border: 2px solid black;
+    width: 30%;
+    
+}
+
+h2{
+    margin: 0px;
+    border: 1px solid black;
+    background-color:darkslategrey;
+    font-size: 20px;
+}
+
+.list{
+    vertical-align: top;
+    border: 2px solid black;
+    display: inline-block;
+    margin-inline: 5px;
+    width: 20%;
+}
+.listContainer{
+    text-align: center;
+    
+}
+
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+li{
+    margin: 3px;
+    margin: 0px;
+    text-align: left;
+    width: 100%;
+
+    display: inline-block;
+}
+
+p{
+    margin: 0px;
+    padding: 3px;
+    background-color: darkgrey;
+    border: 1px solid black;
+}   
+
+.selectedName{
+    margin-left: 10px;    
+}
+
+button {
+    background-color: darkslategray;
+    width: 10%;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+
+.buttonContainer {
+    text-align: center;
+    margin: 0px;
+    padding: 4px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.saveButton{
+    width: 40%;
+}
+
+.monsterContainer{
+    margin-top: 50px;
+}
+
+.monster{
+    vertical-align: top;
+    border: 2px solid black;
+    display: inline-block;
+    margin-inline: 5px;
+    width: 20%;
+}

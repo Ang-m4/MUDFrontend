@@ -1,1 +1,103 @@
-<p>room-show works!</p>
+<div>
+
+    <div class="lists">
+        <h3> <span>Adition Menu</span> </h3>
+
+        <div class="listSelect">
+            <div class="listSelectItem">
+                <div>
+                    <app-monster-list></app-monster-list>
+                </div>
+            </div>
+            <div class="listSelectItem">
+                <div>
+                    <app-player-list></app-player-list>
+                </div>
+            </div>
+            <div class="listSelectItem">
+                <div>
+                    <app-item-list></app-item-list>
+                </div>
+            </div>
+            <div class="listSelectItem">
+                <div>
+                    <app-decorative-item-show></app-decorative-item-show>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <form [formGroup]="roomCreateForm">
+
+        <h3><input class="tittleInput" type="text" formControlName="name"></h3>
+
+        <div class="listContainer">
+
+            <div class="list"> 
+
+                <h2>Items</h2>
+    
+                <ul formArrayName="items">
+                    <li *ngFor="let item of items.controls; let i = index">
+                        <p [formGroupName]="i">
+                            <span class="selectedName">{{item.value.item.name}} </span>
+                            <button (click)="removeItem(i)" class="buttonDelete">X</button>
+                        </p>
+                        
+                    </li>
+                </ul> 
+
+            </div>
+
+            
+            <div class="list"> 
+
+                <h2>Decoratives</h2>
+    
+                <ul formArrayName="decoItems">
+                    <li *ngFor="let decoItem of decoItems.controls; let i = index">
+                        <p [formGroupName]="i">
+                            <span class="selectedName">{{decoItem.value.decoItem.name}} </span>
+                            <button (click)="removeDecoItem(i)" class="buttonDelete">X</button>
+                        </p>
+                        
+                    </li>
+                </ul> 
+
+            </div>
+
+            <div class="list"> 
+
+                <h2>Players</h2>
+    
+                <ul formArrayName="players">
+                    <li *ngFor="let player of players.controls; let i = index">
+                        <p [formGroupName]="i">
+                            <span class="selectedName">{{player.value.player.name}} </span>
+                            <button (click)="removePlayer(i)" class="buttonDelete">X</button>
+                        </p>
+                    </li>
+                </ul> 
+            </div>
+
+        </div>
+
+        <div class="monsterContainer">
+            <div class="listContainer">
+                <div class="monster">
+                    <p>MONSTER</p>
+                    <span>{{this.roomCreateForm.value.monster?.name}}</span>
+                    <button *ngIf="this.roomCreateForm.value.monster != undefined" (click)="removeMonster()" class="buttonDelete">X</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttonContainer">
+            <button class="saveButton" (click)="save()"> Save </button>
+        </div>
+
+    </form>
+
+
+</div>

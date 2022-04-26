@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Monster } from 'src/app/model/monster';
 import { MonsterService } from 'src/app/Shared/monster.service';
 
@@ -10,9 +11,17 @@ import { MonsterService } from 'src/app/Shared/monster.service';
 export class MonsterListComponent implements OnInit {
 
   monsters:Monster[] = [];
-  constructor(private monsterService: MonsterService) { }
+  design: boolean = false;
+
+  constructor(private monsterService: MonsterService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
+
+    if(this.router.url == '/design/monster'){
+      this.design = true;
+    }
 
     this.loadMonsters()
   } 
@@ -24,4 +33,11 @@ export class MonsterListComponent implements OnInit {
   loadMonsters(){
     this.monsterService.findAll().subscribe((received)=> {this.monsters = received});
   }
+
+  add(monster:Monster){
+    this.monsterService.sendMonster(monster)
+  }
+
+ 
+
 }

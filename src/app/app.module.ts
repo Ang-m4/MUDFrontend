@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { DecorativeItemShowComponent } from './Item/decorative-item-show/decorative-item-show.component';
 import { PlayerCreateComponent } from './Player/player-create/player-create.component';
+import { RoomCreateComponent } from './Room/room-create/room-create.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PlayerCreateComponent } from './Player/player-create/player-create.comp
     MonsterCreateComponent,
     ItemCreateComponent,
     DecorativeItemShowComponent,
-    PlayerCreateComponent
+    PlayerCreateComponent,
+    RoomCreateComponent
   ],
   imports: [
     BrowserModule,

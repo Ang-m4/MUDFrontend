@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Player } from '../model/player';
 
 @Injectable({
@@ -8,8 +8,14 @@ import { Player } from '../model/player';
 })
 export class PlayerService {
 
-  constructor(private http: HttpClient) { }
+  private playerSource = new BehaviorSubject<Player>(new Player(-1,"","",0,0,0,0,"","",0,0))
+  playerSelected = this.playerSource.asObservable()
 
+  sendPlayer(player: Player){
+    this.playerSource.next(player);
+  }
+
+  constructor(private http: HttpClient) { }
 
   findAll(): Observable<Player[]>{
     

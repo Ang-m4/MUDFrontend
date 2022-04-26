@@ -43,6 +43,9 @@ export class PlayerCreateComponent implements OnInit {
       weight: ['', [Validators.required]],
       backpack: this.fb.array([])
     });
+      
+    
+    this.items.clear()
 
     this.itemService.itemSelected.subscribe(item => {
       this.addItem(item)
@@ -67,12 +70,14 @@ export class PlayerCreateComponent implements OnInit {
 
     });
 
+
     this.categories.clear();
     this.player.category.forEach(category => {
       this.categories.push(this.newCategory(category))
     });
 
     this.items.clear();
+
     this.player.backpack.forEach(item => {
       this.items.push(this.newItem(item))
     });
@@ -128,7 +133,6 @@ export class PlayerCreateComponent implements OnInit {
 
   }
 
-
   newItem(newItem: Item): FormGroup {
     return this.fb.group({
 
@@ -167,6 +171,8 @@ export class PlayerCreateComponent implements OnInit {
     this.playerService.save(this.playerToSend).subscribe(a => {
       console.log(a)
     })
+
+    this.ngOnInit()
 
   }
 

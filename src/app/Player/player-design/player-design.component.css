@@ -1,6 +1,6 @@
 .playerSection{
-    border: 4px solid black;
-    height: 500px;     
+    border: 6px solid black;
+    height: 700px;     
 }
 
 
@@ -17,6 +17,11 @@
     vertical-align: top;
     display: inline-block;
     width: 20%;
+    height: 100%;
+}
+
+.column .container{
+    overflow:  auto ;
 }
 
 .listDisplay{

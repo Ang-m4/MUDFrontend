@@ -23,8 +23,6 @@ export class ItemListComponent implements OnInit {
     if(this.router.url === '/design/item'){
       this.design = true;
     }
-
-    console.log(this.router.url)
     this.loadItems()
   }
 

@@ -102,6 +102,7 @@ export class MonsterCreateComponent implements OnInit {
       console.log(a)
     })
 
+ 
   };
 
 

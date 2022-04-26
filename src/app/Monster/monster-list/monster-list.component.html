@@ -3,6 +3,7 @@
 <ul>
     <li *ngFor="let monster of monsters; let i = index">
         <a [routerLink]="['/design/monster/show',monster.id]">{{monster.name}}</a>
-        <button (click)="delete(monster.id)"> X </button>
+        <button *ngIf="design==true" (click)="delete(monster.id)"> X </button>
+        <button *ngIf="design==false" (click)="add(monster)"> + </button>
     </li>
 </ul>

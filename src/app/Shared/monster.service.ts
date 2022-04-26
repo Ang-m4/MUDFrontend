@@ -1,17 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable, Observer, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Observer, of, Subject } from 'rxjs';
 import { Monster } from '../model/monster';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonsterService {
-  
+
+  private monsterSource = new BehaviorSubject<Monster>( new Monster(-1,"-- NONE --","",0,0,0,0,"",""))
+  monsterSelected = this.monsterSource.asObservable()
+
+  sendMonster(monster: Monster){
+    this.monsterSource.next(monster);
+  }
+
   constructor(private http: HttpClient) {}
 
-  
   findAll(): Observable<Monster[]>{
     
     return this.http.get<Monster[]>("http://localhost:8080/monster/list");
