@@ -23,6 +23,7 @@ import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { DecorativeItemShowComponent } from './Item/decorative-item-show/decorative-item-show.component';
 import { PlayerCreateComponent } from './Player/player-create/player-create.component';
 import { RoomCreateComponent } from './Room/room-create/room-create.component';
+import { GameViewComponent } from './Game/game-view/game-view.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { RoomCreateComponent } from './Room/room-create/room-create.component';
     ItemCreateComponent,
     DecorativeItemShowComponent,
     PlayerCreateComponent,
-    RoomCreateComponent
+    RoomCreateComponent,
+    GameViewComponent
   ],
   imports: [
     BrowserModule,

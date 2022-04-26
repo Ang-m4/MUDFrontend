@@ -16,7 +16,9 @@ import { RoomDesignComponent } from './Room/room-design/room-design.component';
 import { RoomShowComponent } from './Room/room-show/room-show.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, children: [
+
+  ]},
 
   {
     path: 'design', component: DesignComponent, children: [
