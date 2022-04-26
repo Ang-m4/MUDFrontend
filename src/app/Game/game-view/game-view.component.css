@@ -1,0 +1,15 @@
+.gameViewSection {
+    height: 700px;
+}
+
+.view {
+    text-align: center;
+    vertical-align: top;
+}
+
+.container {
+    display: inline-block;
+    height: 500px;
+    width: 100px;
+    background-color: red;
+}

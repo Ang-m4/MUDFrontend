@@ -81,14 +81,12 @@ export class PlayerCreateComponent implements OnInit {
 
     });
 
-
     this.categories.clear();
     this.player.category.forEach(category => {
       this.categories.push(this.newCategory(category))
     });
 
     this.items.clear();
-
     this.player.backpack.forEach(item => {
       this.items.push(this.newItem(item))
     });
@@ -179,10 +177,10 @@ export class PlayerCreateComponent implements OnInit {
 
     })
 
-    this.playerService.save(this.playerToSend).subscribe(a => {
-      console.log(a)
-    })
-
+    console.log(this.playerToSend)
+    // this.playerService.save(this.playerToSend).subscribe(a => {
+    //   console.log(a)
+    // })
     this.ngOnInit()
 
   }

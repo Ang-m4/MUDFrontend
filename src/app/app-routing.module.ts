@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DesignComponent } from './Design/design/design.component';
+import { GameViewComponent } from './Game/game-view/game-view.component';
 import { HomeComponent } from './Home/home/home.component';
 import { ItemCreateComponent } from './Item/item-create/item-create.component';
 import { ItemDesignComponent } from './Item/item-design/item-design.component';
@@ -16,10 +17,9 @@ import { RoomDesignComponent } from './Room/room-design/room-design.component';
 import { RoomShowComponent } from './Room/room-show/room-show.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, children: [
-
-  ]},
-
+  {
+    path: '', component: HomeComponent
+  },
   {
     path: 'design', component: DesignComponent, children: [
       {
@@ -48,7 +48,10 @@ const routes: Routes = [
       { path: 'show/:id', component: PlayerShowComponent },
       { path: 'create', component: PlayerCreateComponent }
     ]
-  }
+  },
+  {
+    path: 'game', component: GameViewComponent
+  },
 
 ];
 
