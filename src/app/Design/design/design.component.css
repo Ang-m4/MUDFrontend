@@ -1,39 +1,38 @@
-.designContainer{
+.designContainer {
     background-color: rgb(135, 136, 136);
 }
 
-.navBar{
+.navBar {
     background-color: rgb(122, 122, 122);
     border-top: 3px solid black;
-    border-bottom   : 3px solid black;
+    border-bottom: 3px solid black;
 }
 
-ul{
+ul {
     padding: 0px;
     text-align: center;
     width: 100%;
-    margin: 0px;    
-}   
+    margin: 0px;
+}
 
-li{ 
+li {
     margin-top: 10px;
     margin-bottom: 10px;
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
-    border: 3px solid black ;
+    border: 3px solid black;
     margin-inline: 20px;
     width: 20%;
-    background-color:darkslategrey;
+    background-color: darkslategrey;
 }
 
-a{
+a {
     text-decoration: none;
-    color:black ;
+    color: black;
 }
 
-
-.designDisplay{
+.designDisplay {
     display: inline-block;
     height: 100px;
     width: 100%;

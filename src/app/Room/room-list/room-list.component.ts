@@ -20,12 +20,16 @@ export class RoomListComponent implements OnInit {
   }
 
   delete(id: number){
-
+    this.roomService.delete(id).subscribe( a => this.loadRooms())
   }
 
   loadRooms(){
-
     this.roomService.findAll().subscribe(received=> this.rooms = received)
-    
+  }
+
+  add(room:Room){
+
+    this.roomService.sendRoom(room)
+
   }
 }

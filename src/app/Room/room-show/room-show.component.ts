@@ -53,7 +53,7 @@ export class RoomShowComponent implements OnInit {
 
     this.roomCreateForm = this.fb.group({
       name: ['', [Validators.required]],
-      monster: [undefined, [Validators.required]],
+      monster: [this.monster, [Validators.required]],
       players: this.fb.array([]),
       items: this.fb.array([]),
       decoItems: this.fb.array([]),
@@ -73,12 +73,20 @@ export class RoomShowComponent implements OnInit {
       this.addPlayer(player)
     })
 
+    this.monsterService.monsterSelected.subscribe(received=>{
+      if(received.id != -1){
+        this.roomCreateForm.value.monster = received
+        console.log(received)
+      }
+    })
+
   }
 
   loadFormData() {
 
     this.roomCreateForm.patchValue({
-      name: this.room.name
+      name: this.room.name,
+      monster: this.room.monster
     });
 
     this.items.clear();
@@ -86,28 +94,19 @@ export class RoomShowComponent implements OnInit {
       this.items.push(this.newItem(item))
     });
 
-    this.players.clear();
-    this.room.players.forEach(player => {
-      this.players.push(this.newPlayer(player))
-    });
+    // this.players.clear();
+    // this.room.players.forEach(player => {
+    //   this.players.push(this.newPlayer(player))
+    // });
 
     this.decoItems.clear();
     this.room.decorativeItems.forEach(decoItem => {
       this.decoItems.push(this.newDecoItem(decoItem))
     });
-    
-    if(this.room.monster != null){
-      this.roomCreateForm.value.monster = this.room.monster
-    }
 
-    this.monsterService.monsterSelected.subscribe(received=>{
-      
-      if(received.id != -1){
-        this.roomCreateForm.value.monster = received
-      }
 
-    })
-  
+
+
   }
 
   /// ----------- ITEMS ---------- ///
@@ -120,6 +119,7 @@ export class RoomShowComponent implements OnInit {
     this.items.removeAt(i)
   }
 
+
   addItem(newItem: Item) {
 
     let valid = true;
@@ -131,7 +131,6 @@ export class RoomShowComponent implements OnInit {
     })
 
     if ((newItem.id != -1) && valid) {
-
       return this.items.push(this.newItem(newItem))
     }
 
@@ -220,23 +219,23 @@ export class RoomShowComponent implements OnInit {
 
     roomToSend.id = this.room.id;
     roomToSend.name = this.roomCreateForm.value.name;
-    roomToSend.monster = this.roomCreateForm.value.monster
+    roomToSend.monster = this.roomCreateForm.value.monster;
 
     this.items.value.forEach((item: { item: Item; }) => {
       roomToSend.items.push(item.item)
     })
 
-    this.players.value.forEach((player: { player: Player; }) => {
-      roomToSend.players.push(player.player)
-    })
-
     this.decoItems.value.forEach((decoItem: { decoItem: DecorativeItem; }) => {
       roomToSend.decorativeItems.push(decoItem.decoItem)
     })
-    
+
+    // this.players.value.forEach((player: { player: Player; }) => {
+    //   roomToSend.players.push(player.player)
+    // })
+
     console.log(roomToSend)
     this.roomService.save(roomToSend).subscribe(a => console.log(a))
-    
+
   }
 
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Room } from '../model/room';
 
 
@@ -9,14 +9,20 @@ import { Room } from '../model/room';
 })
 export class RoomService {
 
+  private roomSource = new BehaviorSubject<Room>(new Room(-1,""))
+  roomSelected = this.roomSource.asObservable()
+
   constructor(private http: HttpClient) { }
 
+  sendRoom(room: Room){
+    this.roomSource.next(room);
+  }
 
   findAll(): Observable<Room[]>{
-    
+
     console.log("called FindAll service")
     return this.http.get<Room[]>("http://localhost:8080/room/list");
-    
+
   }
 
   findById(id: number):Observable<Room>{

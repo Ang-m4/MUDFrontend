@@ -1,36 +1,35 @@
-h3{
+h3 {
     text-align: center;
     border-bottom: 4px solid black;
     margin: 0px;
-    padding: 2px;   
+    padding: 2px;
     background-color: darkslategray;
 }
 
-ul{
+ul {
     margin: 0px;
     padding: 0px;
     list-style-type: none;
     width: 100%;
-    
 }
 
-li{
+li {
     border-top: 1px solid black;
     border-bottom: 2px solid black;
     padding: 5px;
-    background-color:rgb(69, 82, 82);
+    background-color: rgb(69, 82, 82);
     text-align: justify;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
     margin-right: 10px;
-}  
+}
 
 button {
     background-color: darkslategray;
     margin-left: 20px;
-    width: 10%;
+    width: 15%;
     padding: 2px;
-}       
+}

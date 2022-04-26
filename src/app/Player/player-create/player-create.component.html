@@ -9,7 +9,7 @@
             <ul>
                 <li>
                     <p class="tittle">last updated</p>
-                    <p><input class="content" type="text" formControlName="last_updated"  ></p>
+                    <p><input class="content" type="text" formControlName="last_updated"></p>
                 </li>
                 <li>
                     <p class="tittle">Attack Level</p>
@@ -18,31 +18,36 @@
                 </li>
                 <li>
                     <p class="tittle">defence slash</p>
-                    <p><input class="content" type="number" formControlName="defence_slash" ></p>
+                    <p><input class="content" type="number" formControlName="defence_slash"></p>
                 </li>
                 <li>
                     <p class="tittle">size</p>
-                    <p><input class="content" type="number" formControlName="size" ></p>
+                    <p><input class="content" type="number" formControlName="size"></p>
                 </li>
                 <li>
                     <p class="tittle">hitpoints</p>
-                    <p><input class="content" type="number" formControlName="hitpoints" ></p>
+                    <p><input class="content" type="number" formControlName="hitpoints"></p>
                 </li>
 
                 <li>
                     <p class="tittle">MaxWeight</p>
-                    <p><input class="content" type="number" formControlName="maxWeight" ></p>
+                    <p><input class="content" type="number" formControlName="maxWeight"></p>
                 </li>
 
                 <li>
                     <p class="tittle">Weight</p>
-                    <p><input class="content" type="number" formControlName="weight" ></p>
+                    <p><input class="content" type="number" formControlName="weight"></p>
+                </li>
+
+                <li>
+                    <p class="tittle">location</p>
+                    <p>{{this.room.name}}</p>
                 </li>
 
             </ul>
 
             <h3 style="border-top: 4px solid black;">categories
-                <button (click)="addCategory()" style="width: 10%;" >New </button>
+                <button (click)="addCategory()" style="width: 10%;">New </button>
             </h3>
 
             <ul formArrayName="categories">
@@ -65,15 +70,15 @@
                     </p>
                     <button (click)="removeItem(i)" class="buttonDelete">X</button>
                 </li>
-            </ul>       
+            </ul>
 
             <h4>Examine:</h4>
             <p><input style="background-color: rgb(135, 136, 136)" class="content" type="text" formControlName="examine">
 
-            <div class="buttonContainer">
-                <button (click)="save()"> Save </button>
+                <div class="buttonContainer">
+                    <button (click)="save()"> Save </button>
 
-            </div>
+                </div>
         </div>
 
     </form>
