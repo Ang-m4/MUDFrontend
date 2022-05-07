@@ -1,9 +1,18 @@
-<h3> MONSTER LIST <button (click)="ngOnInit()" >R</button> </h3>
+<div class="listView">
 
-<ul>
-    <li *ngFor="let monster of monsters; let i = index">
-        <a [routerLink]="['/design/monster/show',monster.id]">{{monster.name}}</a>
-        <button *ngIf="design==true" (click)="delete(monster.id)"> X </button>
-        <button *ngIf="design==false" (click)="add(monster)"> + </button>
-    </li>
-</ul>
+    <h3> MONSTER LIST </h3>
+
+    <ul>
+        <li *ngFor="let monster of monsters; let i = index">
+            <span class="textSpan">
+                <a [routerLink]="['/design/monster/show',monster.id]">+{{monster.name}}</a>
+            </span>
+            <span class="buttonSpan">
+                <button *ngIf="design==true" (click)="delete(monster.id)"> delete </button>
+                <button *ngIf="design==false" (click)="add(monster)"> add</button>
+            </span>
+
+        </li>
+    </ul>
+
+</div>

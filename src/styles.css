@@ -1,15 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 
 body {
-    background-color: darkslategrey;
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
+    background-color: rgb(10, 13, 27);
 }
 
-.mainFrame {
-    background-color: gray;
-    width: 80%;
-    height: 100%;
-    border: 3px solid black;
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }

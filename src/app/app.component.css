@@ -1,12 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-.mainTittle {
+
+.baseContainer{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    height: 90vh;
+}
+
+.mainTittle{
     text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 50px;
-    margin: 0px;
-    padding: 5px;
-    background-color: white;
-    /* border: 1px solid black; */
+    font-size: 30px;
+    color: rgb(137, 142, 146);
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -14,36 +21,28 @@ a {
     text-decoration: none;
 }
 
+nav{
+    margin-bottom: 10px;
+}
+
 nav ul {
     text-align: center;
     margin: 0px;
     list-style-type: none;
-    border-bottom: 5px solid black;
-    border-top: 5px solid black;
-    margin-bottom: 1em;
-    background-color: darkgrey;
 }
 
 nav li {
     width: 15%;
     display: inline-block;
-    padding: 5px;
-    font-size: 15px;
+    padding: 2px;
+    font-size: 15px;    
     margin: 3px 10px 3px 10px;
-    border: 2px solid black;
+    background-color: rgb(94, 100, 100);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     text-transform: uppercase;
-    background-color: darkslategray;
+    border-radius: 1vh;
 }
 
-.buttonContainer {
-    text-align: center;
-    margin: 20px;
-}
 
-button {
-    background-color: darkslategray;
-    width: 30%;
-    height: 60px;
-    padding: 5px;
-    margin-left: 20px;
-}
+

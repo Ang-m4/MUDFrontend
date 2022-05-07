@@ -1,36 +1,58 @@
-h3{
+h3 {
+    padding: 10px;
     text-align: center;
-    border-bottom: 4px solid black;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid black;
     margin: 0px;
-    padding: 2px;   
-    background-color: darkslategray;
+    background-color: rgb(41, 44, 44);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
 }
 
-ul{
+ul {
     margin: 0px;
     padding: 0px;
     list-style-type: none;
     width: 100%;
+
+}
+
+li {
     
-}
-
-li{
-    border-top: 1px solid black;
-    border-bottom: 2px solid black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
     padding: 5px;
-    background-color:rgb(69, 82, 82);
-    text-align: justify;
+    text-align: left;
+    color: rgb(91, 91, 92);
+    border-bottom: 1px solid black;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
+    font-weight: 500;
     margin-right: 10px;
-}  
+}
 
 button {
-    background-color: darkslategray;
+    vertical-align: bottom;
     margin-left: 20px;
-    width: 10%;
     padding: 2px;
+    color: rgb(143, 143, 143);
+    background-color: rgb(61, 66, 66);
+    border: 0px solid black;
+    font-weight: 600;
+}
+
+.textSpan {
+    display: inline-block;
+    width: 65%;
+    margin-left: 5px;
+}
+
+.buttonSpan {
+    display: inline-block;
+    width: 30%;
+    text-align: right;
 }

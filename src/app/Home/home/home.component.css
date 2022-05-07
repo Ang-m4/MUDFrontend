@@ -1,18 +1,37 @@
-.homeSection{
-    text-align: justify;
-    border: 4px solid black;
-    
+.homeSection {
+    height: 70vh;
 }
-p{
-    
+
+
+ul {
     margin: 0px;
-    padding: 1em;
-    /* border: 1px solid black; */
+    text-align: center;
+    list-style-type: none;
+    height: 100%;
 }
+
+p{
+    font-size: 13px;
+    text-align: justify;
+}
+
+li{
+    display: inline-block;
+    border-radius: 1vh;
+    background-color: rgb(61, 66, 66);
+    margin: 3px 10px 3px 10px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 1vh;
+    width: 25%;
+    padding: 1em;
+    vertical-align: top;
+
+}   
+
 h3{
-    border-bottom: 4px solid black;
-    border-top: 4px solid black;
-    background-color: darkslategray;
-    padding: 5px;
+    text-align: left;
+    color: rgb(173, 173, 173);
+    font-size: 2vh;
+    font-weight: 300;
     margin: 0px;
 }

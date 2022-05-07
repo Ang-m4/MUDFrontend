@@ -1,32 +1,21 @@
-<div class="designContainer">
+<div class="navBar">
 
-    <div class="navBar">
+    <ul>
+        <li>
+            <a [routerLink]="['/design/monster/']">Monster</a>
+        </li>
 
-        <ul>
-            <li>
-                <a [routerLink]="['/design/monster/']">Monster</a>
-            </li>
+        <li>
+            <a [routerLink]="['/design/item']">Item</a>
+        </li>
 
-            <li>
-                <a [routerLink]="['/design/item']">Item</a>
-            </li>
+        <li>
+            <a [routerLink]="['/design/room']">Room</a>
+        </li>
+    </ul>
 
-            <li>
-                <a [routerLink]="['/design/room']">Room</a>
-            </li>
-        </ul>
+</div>
 
-    </div>
-
-
-    <div class="container">
-
-        <div class="designDisplay">
-            <router-outlet></router-outlet>
-        </div>
-
-    </div>
-
-
-
+<div class="designDisplay">
+    <router-outlet></router-outlet>
 </div>

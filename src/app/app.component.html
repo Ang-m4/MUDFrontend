@@ -1,26 +1,32 @@
-<h1 class="mainTittle">Welcome to the Game!</h1>
+<div class="baseContainer">
 
-<div class="content">
-    <nav>
-        <ul>
-            <li>
-                <a [routerLink]="['/']">home</a>
-            </li>
+    <h1 class="mainTittle">Multi User Dungeon</h1>
 
-            <li>
-                <a [routerLink]="['/design/monster/']">design</a>
-            </li>
+    <div>
 
-            <li>
-                <a [routerLink]="['/admin']">admin</a>
-            </li>
+        <nav>
+            <ul>
+                <li>
+                    <a [routerLink]="['/']">home</a>
+                </li>
 
-            <li>
-                <a [routerLink]="['/game']">game</a>
-            </li>
-        </ul>
-    </nav>
+                <li>
+                    <a [routerLink]="['/design/monster/']">design</a>
+                </li>
 
-    <router-outlet></router-outlet>
+                <li>
+                    <a [routerLink]="['/admin']">admin</a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/game']">game</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <router-outlet></router-outlet> 
+    
 
 </div>
