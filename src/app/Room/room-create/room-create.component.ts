@@ -20,7 +20,7 @@ import { RoomService } from 'src/app/Shared/room.service';
 export class RoomCreateComponent implements OnInit {
 
   room: Room = new Room(-1, "")
-  monster: Monster = new Monster(0,"-- NONE --","",0,0,0,0,"","")
+  monster: Monster = new Monster(0,"","",0,0,0,0,"","")
 
   roomCreateForm: FormGroup = new FormGroup({
     title: new FormControl(''),

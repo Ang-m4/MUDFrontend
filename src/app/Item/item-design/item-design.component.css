@@ -1,60 +1,64 @@
 .itemSection{
-    border: 4px solid black;
-    height: 700px;  
+    height: 70vh;
+    text-align: center;
 }
-
 
 .column{
     vertical-align: top;
     display: inline-block;
-    height: 100%;
-    width: 20%;
+    width: 18%;
+    background-color: rgb(61, 66, 66);
+    height: 60%;
+    border-radius: 1vh;
+    margin: 0.5%;
     overflow: auto;
 }
 
 .selectedDisplay{
     display: inline-block;
-    width: 60%;
+    width: 58%; 
     height: 100%;
-    background-color: rgb(135, 136, 136);
     vertical-align: top; 
+    text-align: center;
+    
+    margin: 0.5%;
 }
 
 .listDisplay{
-    width: 20%;
-    background-color:dimgray;
-    height: 100%;
+    width: 18%;
     display: inline-block;
+    background-color: rgb(61, 66, 66);
+    border-radius: 1vh;
+    height: 100%;
+    margin: 0.5%;
+
+    
 }
 
 .listDisplay .container{
-    border-left: 5px solid black;
-    overflow: auto; 
+    overflow: auto;
 }
 
-.column  .container{
-    border-left: 5px solid black;
-    overflow: auto; 
-}
 .container{
     height: 100%;
     margin: 0px;
-    border-left: 4px solid black;   
 }
 
 button{
-    width: 100%;
-    height: 8%;
-
-    background-color: darkslategray;
+    width: 50%;
+    background-color: rgb(49, 51, 51);
     text-align: center;
-    text-transform: uppercase;
-   
+    border-radius: 2vh;
+    border: 0px solid black;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
 }
 
 .infoDisplay{
-    height: 92%;
     overflow: auto;
+    border-radius: 1vh;
+    margin-bottom: 10px;
 }
 
 a{
@@ -62,3 +66,4 @@ a{
     color: black;
     border:1px solid green;
 }
+

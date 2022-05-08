@@ -1,6 +1,5 @@
 <h3>DECORATIVES
-    <span class="buttonGroup">
-        <button *ngIf="design == true" class="reloadButton" (click)="ngOnInit()">R</button>
+    <span class="buttonSpan">
         <button *ngIf="design == true" (click)="addName()">New</button>
     </span>
 
@@ -14,24 +13,24 @@
 
             <li *ngFor="let item of names.controls; let i = index">
 
-                <span [formGroupName]="i" >
+                <span class="textSpan" [formGroupName]="i">
                     <input class="content" type="text" name="" id="" formControlName="name">
                 </span>
-                
-                <span class="buttonGroup">
 
+                <span class="buttonSpan">
+                    
                     <button *ngIf="design == true" class="saveButton" (click)="save(i)"> Save </button>
 
-                    <span *ngIf="(item.value.id != -1) && design == true">
-                        <button class="deleteButton" (click)="delete(i)"> Delete </button>
-                    </span>
- 
-                    <button *ngIf="design == false" (click)="add(i)" > + </button>
-                    
-                </span> 
+                    <button *ngIf="(item.value.id != -1) && design == true" class="deleteButton" (click)="delete(i)">
+                        Delete </button>
+                    <button *ngIf="design == false" (click)="add(i)"> + </button>
+
+                </span>
 
             </li>
+
         </ul>
+
     </div>
 
 </form>

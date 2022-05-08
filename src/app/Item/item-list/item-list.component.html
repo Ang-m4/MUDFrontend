@@ -1,13 +1,18 @@
-<h3>ITEM LIST <button (click)="ngOnInit()">R</button> </h3>
+<div class="listView">
 
-<div>
+    <h3>ITEM LIST </h3>
+
     <ul>
         <li *ngFor="let item of items; let i = index">
-
-            <a [routerLink]="['/design/item/show',item.id]">{{item.name}}</a>
-            <span *ngIf="design === true"><button (click)="delete(item.id)"> X </button></span>
-            <span *ngIf="design === false"><button (click)="add(item)"> + </button></span>
+            <span class="textSpan">
+                <a [routerLink]="['/design/item/show',item.id]">{{item.name}}</a>
+            </span>
+            <span class="buttonSpan">
+                <button *ngIf="design === true" (click)="delete(item.id)"> X </button>
+                <button *ngIf="design === false" (click)="add(item)"> + </button>
+            </span>
 
         </li>
     </ul>
+
 </div>

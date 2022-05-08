@@ -23,7 +23,6 @@ export class RoomShowComponent implements OnInit {
   room: Room = new Room(0, "")
   monster: Monster = new Monster(0,"-- NONE --","",0,0,0,0,"","")
 
-
   roomCreateForm: FormGroup = new FormGroup({
     title: new FormControl(''),
     description: new FormControl('')
@@ -93,16 +92,17 @@ export class RoomShowComponent implements OnInit {
     this.room.items.forEach(item => {
       this.items.push(this.newItem(item))
     });
-
+    
+    this.decoItems.clear();
+    this.room.decorativeItems.forEach(decoItem => {
+      this.decoItems.push(this.newDecoItem(decoItem))
+    });
     // this.players.clear();
     // this.room.players.forEach(player => {
     //   this.players.push(this.newPlayer(player))
     // });
 
-    this.decoItems.clear();
-    this.room.decorativeItems.forEach(decoItem => {
-      this.decoItems.push(this.newDecoItem(decoItem))
-    });
+   
 
 
 

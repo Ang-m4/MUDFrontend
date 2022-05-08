@@ -1,73 +1,73 @@
-<div>
+<div class="showRoom">
+
+    <h3>CREATE ROOM </h3>
 
     <div class="lists">
-        <h3> <span>Adition Menu</span> </h3>
 
-        <div class="listSelect">
-            <div class="listSelectItem">
-                <div>
-                    <app-monster-list></app-monster-list>
-                </div>
-            </div>
-
-            <div class="listSelectItem">
-                <div>
-                    <app-item-list></app-item-list>
-                </div>
-            </div>
-            <div class="listSelectItem">
-                <div>
-                    <app-decorative-item-show></app-decorative-item-show>
-                </div>
-            </div>
+        <div class="listSelectItem">
+            <app-monster-list></app-monster-list>
         </div>
+
+        <div class="listSelectItem">
+            <app-item-list></app-item-list>
+        </div>
+
+        <div class="listSelectItem">
+            <app-decorative-item-show></app-decorative-item-show>
+        </div>
+
     </div>
 
     <form [formGroup]="roomCreateForm">
 
-        <h3><input class="tittleInput" type="text" formControlName="name"></h3>
+        <span style="border-bottom: 1px solid black;">
+            Rooms Name: <input class="tittleInput" type="text" formControlName="name">
+        </span>
 
-        <div class="listContainer">
-            <div class="list">
-                <h2>Items</h2>
 
-                <ul formArrayName="items">
-                    <li *ngFor="let item of items.controls; let i = index">
-                        <p [formGroupName]="i">
+        <div class="itemsSection">
+            <h4>Items:</h4>
+
+            <ul formArrayName="items">
+                <li *ngFor="let item of items.controls; let i = index">
+                    <p [formGroupName]="i">
+
+                        <span class="textSpan">
                             <span class="selectedName">{{item.value.item.name}} </span>
-                            <button (click)="removeItem(i)" class="buttonDelete">X</button>
-                        </p>
-                    </li>
-                </ul>
-            </div>
+                        </span>
 
-            <div class="list">
-                <h2>Decoratives</h2>
-                <ul formArrayName="decoItems">
-                    <li *ngFor="let decoItem of decoItems.controls; let i = index">
-                        <p [formGroupName]="i">
-                            <span class="selectedName">{{decoItem.value.decoItem.name}} </span>
-                            <button (click)="removeDecoItem(i)" class="buttonDelete">X</button>
-                        </p>
-                    </li>
-                </ul>
-            </div>
+                        <span class="buttonSpan">
+                            <button (click)="removeItem(i)" class="buttonDelete">x</button>
+                        </span>
+                    </p>
+                </li>
+            </ul>
+
 
         </div>
 
-        <div class="monsterContainer">
-            <div class="listContainer">
-                <div class="monster">
-                    <p>Monster</p>
-                    <span>{{this.roomCreateForm.value.monster?.name}}</span>
-                    <button *ngIf="this.roomCreateForm.value.monster != undefined" (click)="removeMonster()" class="buttonDelete">X</button>
-                </div>
-            </div>
+        <div class="itemsSection">
+
+            <h4>Decoratives:</h4>
+            <ul formArrayName="decoItems">
+                <li *ngFor="let decoItem of decoItems.controls; let i = index">
+                    <p [formGroupName]="i">
+                        <span class="selectedName">{{decoItem.value.decoItem.name}} </span>
+                        <button (click)="removeDecoItem(i)" class="buttonDelete">x</button>
+                    </p>
+                </li>
+            </ul>
+
+
+
         </div>
 
-        <div class="buttonContainer">
-            <button class="saveButton" (click)="save()"> Save </button>
-        </div>
+        <h4> Monster: <span style="font-style: italic; margin-left: 40px;">{{this.roomCreateForm.value.monster?.name}}
+            </span><button *ngIf="this.roomCreateForm.value.monster != undefined" (click)="removeMonster()"
+                class="buttonDelete">X</button></h4>
+
+        <button class="buttonSave" (click)="save()"> Save </button>
+
 
     </form>
 

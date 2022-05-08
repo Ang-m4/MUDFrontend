@@ -3,9 +3,15 @@
 <ul>
 
     <li *ngFor="let room of rooms; let i = index">
-        <a [routerLink]="['/design/room/show',room.id]">{{room.name}}</a>
-        <button (click)="delete(room.id)"> - </button>
-        <button (click)="add(room)"> + </button>
+        <span class="textSpan">
+            <a [routerLink]="['/design/room/show',room.id]">{{room.name}}</a>
+        </span>
+
+        <span class="buttonSpan">
+            <button (click)="delete(room.id)"> - </button>
+            <button (click)="add(room)"> + </button>
+        </span>
+       
     </li>
 
 </ul>
