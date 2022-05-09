@@ -20,10 +20,13 @@ export class ItemListComponent implements OnInit {
   
   ngOnInit(): void {
 
-    if(this.router.url === '/design/item'){
+    if(this.router.url === '/design/item/create'){
       this.design = true;
     }
+
     this.loadItems()
+
+    this.itemService.updateSignal.subscribe(signal => this.loadItems())
   }
 
   delete(id:number){

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Room } from 'src/app/model/room';
 import { RoomService } from 'src/app/Shared/room.service';
 
@@ -10,13 +11,19 @@ import { RoomService } from 'src/app/Shared/room.service';
 export class RoomListComponent implements OnInit {
 
   rooms:Room[] =  []
-
-  constructor(private roomService: RoomService) { }
-
+  design:boolean = false;
+  constructor(private roomService: RoomService,private router: Router) { }
+  
 
   ngOnInit(): void {
 
+    if(this.router.url == '/design/room/create'){
+      this.design = true;
+    }
+
     this.loadRooms()
+
+    this.roomService.updateSignal.subscribe(signal => this.loadRooms())
   }
 
   delete(id: number){
@@ -28,8 +35,6 @@ export class RoomListComponent implements OnInit {
   }
 
   add(room:Room){
-
     this.roomService.sendRoom(room)
-
   }
 }

@@ -19,11 +19,14 @@ export class MonsterListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.router.url == '/design/monster'){
+    if(this.router.url == '/design/monster/create'){
       this.design = true;
     }
 
     this.loadMonsters()
+
+    this.monsterService.updateSignal.subscribe(signal => this.loadMonsters());
+
   } 
   
   delete(id: number) {
@@ -32,6 +35,7 @@ export class MonsterListComponent implements OnInit {
 
   loadMonsters(){
     this.monsterService.findAll().subscribe((received)=> {this.monsters = received});
+    
   }
 
   add(monster:Monster){

@@ -8,8 +8,8 @@
                 <a [routerLink]="['/design/item/show',item.id]">{{item.name}}</a>
             </span>
             <span class="buttonSpan">
-                <button *ngIf="design === true" (click)="delete(item.id)"> X </button>
-                <button *ngIf="design === false" (click)="add(item)"> + </button>
+                <button *ngIf="design === true" (click)="delete(item.id)"> delete </button>
+                <button *ngIf="design === false" (click)="add(item)"> add </button>
             </span>
 
         </li>

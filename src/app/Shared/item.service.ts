@@ -9,9 +9,16 @@ import { Item } from '../model/item';
 export class ItemService {
 
   private itemSource = new BehaviorSubject<Item>(new Item(-1,"","",0,0,"",""))
+  private upSignalSource = new BehaviorSubject<Boolean>(true);
+
   itemSelected = this.itemSource.asObservable()
+  updateSignal = this.upSignalSource.asObservable()
 
   constructor(private http: HttpClient) { }
+
+  updateList(){
+    this.upSignalSource.next(true)
+  }
 
   sendItem(item: Item){
     this.itemSource.next(item);

@@ -36,7 +36,8 @@ export class ItemShowComponent implements OnInit {
       last_updated: ['', [Validators.required]],
       cost: ['', [Validators.required]],
       weight: ['', [Validators.required]],
-      examine: ['', [Validators.required]]
+      examine: ['', [Validators.required]],
+      wiki_url: ['', [Validators.required]]
 
     })
 
@@ -66,22 +67,29 @@ export class ItemShowComponent implements OnInit {
       last_updated: this.item.last_updated,
       cost: this.item.cost,
       weight: this.item.weight,
-      examine: this.item.examine
+      examine: this.item.examine,
+      wiki_url: this.item.wiki_url
 
     })
 
   }
 
-  save(){
-    
+  save() {
+
     this.itemToSave.id = this.item.id;
     this.itemToSave.cost = this.itemCreateForm.value.cost;
     this.itemToSave.last_updated = this.itemCreateForm.value.last_updated;
     this.itemToSave.name = this.itemCreateForm.value.name;
-    this.itemToSave.weight =  this.itemCreateForm.value.weight;
+    this.itemToSave.weight = this.itemCreateForm.value.weight;
     this.itemToSave.examine = this.itemCreateForm.value.examine;
-    
-    this.itemService.save(this.itemToSave).subscribe();
+
+    this.itemService.save(this.itemToSave).subscribe(itemSaved => {
+
+      console.log(itemSaved)
+      this.itemService.updateList()
+
+    }
+    );
   }
 
 }

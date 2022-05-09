@@ -5,7 +5,7 @@
 
 .selectedDisplay{
     display: inline-block;
-    width: 80%;
+    width: 70%;
     height: 100%;
     vertical-align: top; 
     margin: 10px;
@@ -13,7 +13,7 @@
 }
 
 .listDisplay{
-    width: 15%;
+    width: 20%;
     height: 100%;
     display: inline-block;
     border-radius: 1vh;

@@ -9,37 +9,44 @@ import { Room } from '../model/room';
 })
 export class RoomService {
 
-  private roomSource = new BehaviorSubject<Room>(new Room(-1,""))
+  private roomSource = new BehaviorSubject<Room>(new Room(-1, ""))
+  private upSignalSource = new BehaviorSubject<Boolean>(true);
   roomSelected = this.roomSource.asObservable()
+  updateSignal = this.upSignalSource.asObservable()
 
   constructor(private http: HttpClient) { }
 
-  sendRoom(room: Room){
+
+  updateList() {
+    this.upSignalSource.next(true)
+  }
+
+  sendRoom(room: Room) {
     this.roomSource.next(room);
   }
 
-  findAll(): Observable<Room[]>{
+  findAll(): Observable<Room[]> {
 
     console.log("called FindAll service")
     return this.http.get<Room[]>("http://localhost:8080/room/list");
 
   }
 
-  findById(id: number):Observable<Room>{
+  findById(id: number): Observable<Room> {
 
-    return this.http.get<Room>("http://localhost:8080/room/"+id+"/get");
+    return this.http.get<Room>("http://localhost:8080/room/" + id + "/get");
 
   }
 
   delete(id: number): Observable<number> {
 
-    return this.http.get<number>("http://localhost:8080/room/"+id+"/delete")
+    return this.http.get<number>("http://localhost:8080/room/" + id + "/delete")
 
   }
 
-  save(room: Room): Observable<Room>{
+  save(room: Room): Observable<Room> {
 
-    return this.http.post<Room>("http://localhost:8080/room/save",room);
+    return this.http.post<Room>("http://localhost:8080/room/save", room);
 
   }
 }

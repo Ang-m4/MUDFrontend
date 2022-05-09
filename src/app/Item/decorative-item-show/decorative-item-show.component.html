@@ -1,5 +1,5 @@
 <h3>DECORATIVES
-    <span class="buttonSpan">
+    <span>
         <button *ngIf="design == true" (click)="addName()">New</button>
     </span>
 
@@ -23,7 +23,7 @@
 
                     <button *ngIf="(item.value.id != -1) && design == true" class="deleteButton" (click)="delete(i)">
                         Delete </button>
-                    <button *ngIf="design == false" (click)="add(i)"> + </button>
+                    <button *ngIf="design == false" (click)="add(i)"> add </button>
 
                 </span>
 

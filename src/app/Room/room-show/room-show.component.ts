@@ -21,7 +21,7 @@ import { RoomService } from 'src/app/Shared/room.service';
 export class RoomShowComponent implements OnInit {
 
   room: Room = new Room(0, "")
-  monster: Monster = new Monster(0,"-- NONE --","",0,0,0,0,"","")
+  monster: Monster = new Monster(0, "", "", 0, 0, 0, 0, "", "")
 
   roomCreateForm: FormGroup = new FormGroup({
     title: new FormControl(''),
@@ -63,20 +63,29 @@ export class RoomShowComponent implements OnInit {
       this.addItem(item)
     })
 
-    this.decoItemService.decoItemSelected.subscribe(decoItem=>{
+    this.decoItemService.decoItemSelected.subscribe(decoItem => {
       this.addDecoItem(decoItem)
     })
 
-    this.playerService.playerSelected.subscribe(player=>{
+    this.playerService.playerSelected.subscribe(player => {
       console.log(player)
       this.addPlayer(player)
     })
 
-    this.monsterService.monsterSelected.subscribe(received=>{
-      if(received.id != -1){
+    this.monsterService.monsterSelected.subscribe(received => {
+      if (received.id != -1) {
         this.roomCreateForm.value.monster = received
         console.log(received)
       }
+    })
+
+    this.roomService.roomSelected.subscribe(received => {
+
+      if (received.id != -1) {
+        this.addExit(received)
+        console.log(received)
+      }
+
     })
 
   }
@@ -92,22 +101,53 @@ export class RoomShowComponent implements OnInit {
     this.room.items.forEach(item => {
       this.items.push(this.newItem(item))
     });
-    
+
     this.decoItems.clear();
     this.room.decorativeItems.forEach(decoItem => {
       this.decoItems.push(this.newDecoItem(decoItem))
     });
-    // this.players.clear();
-    // this.room.players.forEach(player => {
-    //   this.players.push(this.newPlayer(player))
-    // });
 
-   
-
-
-
+    this.exits.clear();
+    this.room.exits.forEach(exit => {
+      this.exits.push(this.newExit(exit))
+    });
 
   }
+
+     /// ----------- Exits ---------- ///
+     get exits(): FormArray {
+      return this.roomCreateForm.get('exits') as FormArray
+    }
+  
+    removeExit(i: number) {
+      this.exits.removeAt(i)
+    }
+  
+    addExit(newExit: Room) {
+  
+      let valid = true;
+      console.log(newExit)
+  
+      this.exits.value.forEach((exit: { exit: Room; }) => {
+        if (exit.exit.id == newExit.id) {
+          
+          valid = false;
+        }
+  
+      })
+  
+      if ((newExit.id != -1) && valid) {
+        return this.exits.push(this.newExit(newExit))
+      }
+  
+    }
+  
+    newExit(newExit: Room): FormGroup {
+      return this.fb.group({
+        exit: [newExit, Validators.required]
+      })
+    }
+  
 
   /// ----------- ITEMS ---------- ///
 
@@ -209,11 +249,11 @@ export class RoomShowComponent implements OnInit {
     })
   }
 
-  removeMonster(){
+  removeMonster() {
     this.roomCreateForm.value.monster = undefined;
   }
 
-  save(){
+  save() {
 
     let roomToSend = new Room(0, "")
 
@@ -229,12 +269,15 @@ export class RoomShowComponent implements OnInit {
       roomToSend.decorativeItems.push(decoItem.decoItem)
     })
 
-    // this.players.value.forEach((player: { player: Player; }) => {
-    //   roomToSend.players.push(player.player)
-    // })
+    this.exits.value.forEach((exit: { exit: Room; }) => {
+      roomToSend.exits.push(new Room(exit.exit.id,""))
+    })
 
     console.log(roomToSend)
-    this.roomService.save(roomToSend).subscribe(a => console.log(a))
+    this.roomService.save(roomToSend).subscribe(roomSaved => {
+      console.log(roomSaved)
+      this.roomService.updateList()
+    })
 
   }
 

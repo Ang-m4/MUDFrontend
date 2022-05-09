@@ -8,11 +8,18 @@ import { Monster } from '../model/monster';
 })
 export class MonsterService {
 
-  private monsterSource = new BehaviorSubject<Monster>( new Monster(-1,"-- NONE --","",0,0,0,0,"",""))
+  private monsterSource = new BehaviorSubject<Monster>( new Monster(-1,"","",0,0,0,0,"",""))
+  private upSignalSource = new BehaviorSubject<Boolean>(true);
+
   monsterSelected = this.monsterSource.asObservable()
+  updateSignal = this.upSignalSource.asObservable()
 
   sendMonster(monster: Monster){
     this.monsterSource.next(monster);
+  }
+
+  updateList(){
+    this.upSignalSource.next(true)
   }
 
   constructor(private http: HttpClient) {}

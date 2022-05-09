@@ -5,7 +5,7 @@
     <div class="lists">
 
         <div class="listSelectItem">
-            <app-monster-list></app-monster-list>
+            <app-decorative-item-show></app-decorative-item-show>
         </div>
 
         <div class="listSelectItem">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="listSelectItem">
-            <app-decorative-item-show></app-decorative-item-show>
+            <app-monster-list></app-monster-list>
         </div>
 
     </div>
@@ -24,6 +24,25 @@
             Rooms Name: <input class="tittleInput" type="text" formControlName="name">
         </span>
 
+        <div class="itemsSection">
+            <h4>Exits:</h4>
+
+            <ul formArrayName="exits">
+                <li *ngFor="let exit of exits.controls; let i = index">
+                    <p [formGroupName]="i">
+
+                        <span class="textSpan">
+                            <span class="selectedName">{{exit.value.exit.name}} </span>
+                        </span>
+
+                        <span class="buttonSpan">
+                            <button (click)="removeExit(i)" class="buttonDelete">x</button>
+                        </span>
+                    </p>
+                </li>
+            </ul>
+
+        </div>
 
         <div class="itemsSection">
             <h4>Items:</h4>
@@ -45,6 +64,8 @@
 
 
         </div>
+
+
 
         <div class="itemsSection">
 

@@ -1,4 +1,4 @@
-<h3> ROOM LIST <button (click)="ngOnInit()">R</button> </h3>
+<h3> ROOM LIST</h3>
 
 <ul>
 
@@ -8,8 +8,10 @@
         </span>
 
         <span class="buttonSpan">
-            <button (click)="delete(room.id)"> - </button>
-            <button (click)="add(room)"> + </button>
+
+            <button *ngIf="design == true" (click)="delete(room.id)"> delete </button>
+            <button (click)="add(room)"> add </button>
+
         </span>
        
     </li>

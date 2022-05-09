@@ -114,10 +114,14 @@ export class MonsterShowComponent implements OnInit {
 
     });
 
-    this.monsterService.save(this.monsterToSend).subscribe(a => {
-      console.log(a)
+    this.monsterService.save(this.monsterToSend).subscribe(monsterSaved => {
+      
+      console.log(monsterSaved) 
+      this.monsterService.updateList(); 
+
     })
 
+  
   };
 
 }

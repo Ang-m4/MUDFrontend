@@ -47,12 +47,14 @@ button {
 
 .textSpan {
     display: inline-block;
-    width: 65%;
+    width: 45%;
     margin-left: 5px;
+    
 }
 
 .buttonSpan {
     display: inline-block;
-    width: 30%;
+    width: 50%;
     text-align: right;
+ 
 }

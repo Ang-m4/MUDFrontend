@@ -16,7 +16,7 @@ export class ItemCreateComponent implements OnInit {
     title: new FormControl(''),
     description: new FormControl('')
   });
-  
+
   constructor(
     private fb: FormBuilder,
     private itemService: ItemService,
@@ -37,17 +37,23 @@ export class ItemCreateComponent implements OnInit {
 
   }
 
-  save(){
-    
+  save() {
+
     this.item.id = this.item.id;
     this.item.cost = this.itemCreateForm.value.cost;
     this.item.last_updated = this.itemCreateForm.value.last_updated;
     this.item.name = this.itemCreateForm.value.name;
-    this.item.weight =  this.itemCreateForm.value.weight;
+    this.item.weight = this.itemCreateForm.value.weight;
     this.item.examine = this.itemCreateForm.value.examine;
     this.item.wiki_url = this.itemCreateForm.value.wiki_url;
-    
-    this.itemService.save(this.item).subscribe();
+
+    this.itemService.save(this.item).subscribe(itemSaved => {
+
+      console.log(itemSaved);
+      this.itemService.updateList();
+
+    }
+    );
   }
 
 }
