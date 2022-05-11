@@ -1,6 +1,6 @@
 <div class="listView">
 
-    <h3> PLAYER LIST <button (click)="ngOnInit()" >R</button> </h3>
+    <h3> PLAYER LIST </h3>
     
     <ul>
         <li *ngFor="let player of players; let i = index">
@@ -9,8 +9,8 @@
             </span>
     
             <span class="buttonSpan">
-                <button *ngIf="design == true" (click)="delete(player.id)"> X </button>
-                <button *ngIf="design == false" (click)="add(player)"> + </button>
+                <button *ngIf="design == false" (click)="delete(player.id)"> delete </button>
+                <button *ngIf="design == true" (click)="add(player)"> add </button>
             </span>
         </li>
     </ul>

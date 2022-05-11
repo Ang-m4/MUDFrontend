@@ -17,7 +17,7 @@ export class RoomListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.router.url == '/design/room/create'){
+    if(this.router.url.includes('/design/room/')){
       this.design = true;
     }
 

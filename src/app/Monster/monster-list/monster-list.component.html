@@ -5,7 +5,7 @@
     <ul>
         <li *ngFor="let monster of monsters; let i = index">
             <span class="textSpan">
-                <a [routerLink]="['/design/monster/show',monster.id]">+{{monster.name}}</a>
+                <a [routerLink]="['/design/monster/show',monster.id]">{{monster.name}}</a>
             </span>
             <span class="buttonSpan">
                 <button *ngIf="design==true" (click)="delete(monster.id)"> delete </button>

@@ -177,11 +177,10 @@ export class PlayerCreateComponent implements OnInit {
 
     })
 
-    console.log(this.playerToSend)
-    // this.playerService.save(this.playerToSend).subscribe(a => {
-    //   console.log(a)
-    // })
-    this.ngOnInit()
+    this.playerService.save(this.playerToSend).subscribe(playerSaved => {
+      console.log(playerSaved);
+      this.playerService.updateList();
+    })
 
   }
 

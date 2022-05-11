@@ -40,8 +40,6 @@ export class PlayerShowComponent implements OnInit {
       let id = +params.get("id")!;
       this.playerService.findById(id).subscribe((received) => {
         this.player = received;
-
-        console.log(received)
         this.loadFormData()
       });
 
@@ -72,7 +70,6 @@ export class PlayerShowComponent implements OnInit {
       console.log(received)
       this.room = received
     })
-
 
   }
 
@@ -191,8 +188,9 @@ export class PlayerShowComponent implements OnInit {
 
     })
 
-    this.playerService.save(this.playerToSend).subscribe(a => {
-      console.log(a)
+    this.playerService.save(this.playerToSend).subscribe(playerSaved => {
+      console.log(playerSaved);
+      this.playerService.updateList();
     })
 
   }

@@ -25,6 +25,8 @@ export class PlayerListComponent implements OnInit {
     }
 
     this.loadPlayers()
+
+    this.playerService.updateSignal.subscribe(signal => this.loadPlayers())
   }
 
   delete(id: number) {

@@ -270,7 +270,7 @@ export class RoomShowComponent implements OnInit {
     })
 
     this.exits.value.forEach((exit: { exit: Room; }) => {
-      roomToSend.exits.push(new Room(exit.exit.id,""))
+      roomToSend.exits.push(new Room(exit.exit.id,exit.exit.name))
     })
 
     console.log(roomToSend)
