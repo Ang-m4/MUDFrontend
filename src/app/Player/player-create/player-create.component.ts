@@ -163,7 +163,7 @@ export class PlayerCreateComponent implements OnInit {
     this.playerToSend.wiki_url = this.playerCreateForm.value.wiki_url;
     this.playerToSend.maxWeight = this.playerCreateForm.value.maxWeight;
     this.playerToSend.weight = this.playerCreateForm.value.weight;
-    this.playerToSend.location = this.room;
+    this.playerToSend.location = this.playerCreateForm.value.location;
 
     this.categories.value.forEach((category: { name: string; }) => {
 
@@ -176,6 +176,8 @@ export class PlayerCreateComponent implements OnInit {
       this.playerToSend.backpack.push(item.item)
 
     })
+
+    console.log(this.playerToSend);
 
     this.playerService.save(this.playerToSend).subscribe(playerSaved => {
       console.log(playerSaved);
