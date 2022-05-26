@@ -13,6 +13,8 @@ export class PlayerService {
   playerSelected = this.playerSource.asObservable()
   updateSignal = this.upSignalSource.asObservable()
 
+  constructor(private http: HttpClient) { }
+
   sendPlayer(player: Player){
     this.playerSource.next(player);
   }
@@ -20,8 +22,6 @@ export class PlayerService {
   updateList(){
     this.upSignalSource.next(true)
   }
-
-  constructor(private http: HttpClient) { }
 
   findAll(): Observable<Player[]>{
     return this.http.get<Player[]>("http://localhost:8080/player/list");

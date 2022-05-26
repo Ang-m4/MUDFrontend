@@ -68,6 +68,7 @@ export class PlayerShowComponent implements OnInit {
 
       console.log(received)
       this.player.location = received
+      
     })
 
   }
