@@ -42,7 +42,7 @@ export class GameViewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.playerService.findById(30).subscribe(player => {
+    this.playerService.findById(18043).subscribe(player => {
       this.player = player;
 
       this.roomService.findById(player.location.id).subscribe(room => {
@@ -128,8 +128,6 @@ export class GameViewComponent implements OnInit {
 
     this.roomService.findById(room.id).subscribe(roomM => {
 
-      
-
       this.room = roomM;
       this.monsterHitpoints = this.room.monster.hitpoints;
       this.attackAvaliable = true;
@@ -139,8 +137,6 @@ export class GameViewComponent implements OnInit {
       this.render2.appendChild(log, div)
 
     })
-
-
 
   }
 
@@ -169,6 +165,8 @@ export class GameViewComponent implements OnInit {
 
     let damage = this.getRandomArbitrary(0, this.room.monster.attack_level) - this.getRandomArbitrary(0, this.player.defence_slash)
 
+    damage = 4
+    
     if (damage < 0) {
       damage = 0;
     }
@@ -182,6 +180,7 @@ export class GameViewComponent implements OnInit {
       this.addItemAvaliable = true;
 
       text = this.render2.createText('YOU DIED');
+
     }
 
     this.render2.appendChild(div, text)
